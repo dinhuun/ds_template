@@ -1,0 +1,45 @@
+[build-system]
+requires = ["uv_build>=0.10"]
+build-backend = "uv_build"
+
+[project]
+description = "{{cookiecutter.description}}"
+name = "{{cookiecutter.project_slug}}"
+readme = "README.md"
+requires-python = ">=3.13"
+version = "0.0.1"
+authors = [{name = "{{cookiecutter.author_name}}", email = "{{cookiecutter.author_email}}"}]
+maintainers = [{name = "{{cookiecutter.author_name}}", email = "{{cookiecutter.author_email}}"}]
+classifiers = [
+    "Operating System :: OS Indpendent",
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "jupyter",
+    "pytest",
+    "ruff",
+    "ty",
+]
+
+[project.urls]
+Homepage = "https://example.com"
+
+[tool.ruff]
+extend-exclude = ["*_pb2.py"]
+line-length = 120
+src = ["src", "tests"]
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["B", "E4", "E7", "E9", "F", "I"]
+ignore = ["E741"]
+
+[tool.ruff.lint.isort]
+lines-after-imports = 2
+
+[tool.ty.rules]
+unresolved-import = "error"
